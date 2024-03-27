@@ -3,12 +3,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gemini_tutorial/bloc/chat_bloc/chat_bloc.dart';
 import 'package:gemini_tutorial/bloc/response/response_bloc.dart';
-import 'package:gemini_tutorial/pages/home_page.dart';
+import 'package:gemini_tutorial/features/auth/presentation/bloc/auth_bloc/auth_bloc.dart';
+import 'package:gemini_tutorial/features/auth/presentation/sign_up/signup.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -17,6 +17,9 @@ class MyApp extends StatelessWidget {
           create: (context) => ChatBloc()..add(FetchHistory()),
         ),
         BlocProvider(create: (context) => ResponseBloc()),
+        BlocProvider(
+          create: (context) => AuthBloc(),
+        )
       ],
       child: const ScreenUtilInit(
         designSize: Size(375, 812),
@@ -24,7 +27,7 @@ class MyApp extends StatelessWidget {
         child: MaterialApp(
           themeMode: ThemeMode.dark,
           debugShowCheckedModeBanner: false,
-          home: HomePage(),
+          home: SignUpPage(),
         ),
       ),
     );

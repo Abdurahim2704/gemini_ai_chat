@@ -1,7 +1,7 @@
 import 'package:gemini_tutorial/models/message.dart';
 import 'package:google_generative_ai/google_generative_ai.dart';
 
-const apiKey = "AIzaSyAC5_bNsUJ3TJNQbcclo2RGr68i1zD_qL0";
+const apiKey = "AIzaSyDrhlGSgAqNlbR_bi44-hYSAgf1-HIERuU";
 
 class GeminiService {
   late GenerativeModel model;
